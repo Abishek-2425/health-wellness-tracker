@@ -1,0 +1,125 @@
+/* index.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Soft light blue background for calmness */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #333; /* Dark gray text for readability */
+}
+
+/* Container for centering the content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure it takes up full viewport height */
+    width: 100%;
+}
+
+/* Content Wrapper */
+.content {
+    background-color: white; /* White background for the form to make it stand out */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+h2 {
+    font-size: 2.5em;
+    color: #4CAF50; /* Calming green color for the title */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Input fields and labels */
+label {
+    font-size: 1.1em;
+    color: #555; /* Lighter gray for labels */
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect for input fields */
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* Calming green for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #45a049; /* Slightly darker green for hover effect */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Link Styling */
+p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Sign-up Link Styling */
+p a {
+    color: #4CAF50; /* Calming green for the sign-up link */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Link Hover Effect */
+p a:hover {
+    color: #388e3c; /* Darker green on hover for interactivity */
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.2em; /* Slightly smaller title font on mobile */
+    }
+
+    button {
+        font-size: 1.1em; /* Adjust button font size for mobile */
+        padding: 14px;
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 10px;
+        font-size: 1em;
+    }
+}

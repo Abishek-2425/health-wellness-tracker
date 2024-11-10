@@ -1,0 +1,90 @@
+/* home.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* Soft background for a calm and clean look */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333; /* Dark gray text for readability */
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #4CAF50; /* Calming green for the header */
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+nav {
+    margin-top: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 15px 30px;
+}
+
+nav a {
+    font-size: 1.5em;
+    color: #4CAF50; /* Calming green for links */
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button {
+    background-color: #f44336; /* Calming red color for logout button */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    nav ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    nav li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav a {
+        font-size: 1.2em;
+        padding: 12px 25px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px 0;
+    }
+}
