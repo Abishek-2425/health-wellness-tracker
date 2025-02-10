@@ -1,125 +1,208 @@
-/* index.css */
+/* Modern CSS with enhanced UI */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --text-color: #2b2d42;
+    --light-text: #8d99ae;
+    --background: #f8f9fa;
+    --white: #ffffff;
+    --error: #ef233c;
+    --success: #06d6a0;
+}
 
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8; /* Soft light blue background for calmness */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: #333; /* Dark gray text for readability */
-}
-
-/* Container for centering the content */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Ensure it takes up full viewport height */
-    width: 100%;
-}
-
-/* Content Wrapper */
-.content {
-    background-color: white; /* White background for the form to make it stand out */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
     box-sizing: border-box;
 }
 
-/* Header Styling */
-h2 {
-    font-size: 2.5em;
-    color: #4CAF50; /* Calming green color for the title */
-    font-weight: 700;
-    margin-bottom: 30px;
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, #e9ecef 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
 }
 
-/* Input fields and labels */
-label {
-    font-size: 1.1em;
-    color: #555; /* Lighter gray for labels */
-    margin-bottom: 8px;
-    display: block;
-}
-
-input[type="text"], input[type="password"] {
+.container {
     width: 100%;
-    padding: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 3em;
+    color: var(--primary-color);
     margin-bottom: 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    animation: pulse 2s infinite;
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--light-text);
+    margin-bottom: 30px;
     font-size: 1.1em;
-    color: #333;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Focus effect for input fields */
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Button Styling */
-button {
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+.input-group input {
     width: 100%;
-    padding: 12px;
-    background-color: #4CAF50; /* Calming green for the button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background: var(--background);
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+    outline: none;
+}
+
+.input-group input:focus + i {
+    color: var(--primary-color);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Button Hover Effect */
-button:hover {
-    background-color: #45a049; /* Slightly darker green for hover effect */
-    transform: translateY(-3px); /* Subtle lift effect */
+.remember input[type="checkbox"] {
+    accent-color: var(--primary-color);
 }
 
-/* Link Styling */
-p {
+.forgot {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot:hover {
+    color: var(--secondary-color);
+}
+
+.login-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
     font-size: 1.1em;
-    color: #555;
-    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Sign-up Link Styling */
-p a {
-    color: #4CAF50; /* Calming green for the sign-up link */
+.login-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.login-btn i {
+    transition: transform 0.3s ease;
+}
+
+.login-btn:hover i {
+    transform: translateX(5px);
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--light-text);
+}
+
+.signup-link a {
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-/* Link Hover Effect */
-p a:hover {
-    color: #388e3c; /* Darker green on hover for interactivity */
+.signup-link a:hover {
+    color: var(--secondary-color);
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .content {
+        padding: 30px 20px;
+    }
+
     h2 {
-        font-size: 2.2em; /* Slightly smaller title font on mobile */
+        font-size: 1.8em;
     }
 
-    button {
-        font-size: 1.1em; /* Adjust button font size for mobile */
-        padding: 14px;
-    }
-
-    input[type="text"], input[type="password"] {
-        padding: 10px;
-        font-size: 1em;
+    .remember-forgot {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
     }
 }

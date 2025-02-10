@@ -3,17 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Health & Wellness Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
-    <nav>
-        <ul>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="hsdata.html">Health and Sleep Data</a></li>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>Health Tracker</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active">
+                <a href="home.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="hsdata.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Health Data</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="lout.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
         </ul>
     </nav>
-    <button onclick="window.location.href='lout.html'">Logout</button>
+
+    <main class="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Welcome Back, <span class="user-name">User</span></h1>
+                <div class="date">
+                    <i class="far fa-calendar"></i>
+                    <span id="current-date"></span>
+                </div>
+            </div>
+            <div class="profile-menu">
+                <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                <div class="notifications">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="card health-score">
+                <div class="card-header">
+                    <h3>Health Score</h3>
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="score">85</div>
+                <div class="trend positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>5% from last week</span>
+                </div>
+            </div>
+
+            <div class="card steps">
+                <div class="card-header">
+                    <h3>Daily Steps</h3>
+                    <i class="fas fa-walking"></i>
+                </div>
+                <div class="steps-count">8,547</div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 71%"></div>
+                </div>
+                <p>Goal: 12,000 steps</p>
+            </div>
+
+            <div class="card sleep">
+                <div class="card-header">
+                    <h3>Sleep Duration</h3>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="sleep-hours">7h 45m</div>
+                <div class="sleep-quality">Quality: Good</div>
+            </div>
+
+            <div class="card water">
+                <div class="card-header">
+                    <h3>Water Intake</h3>
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="water-amount">1.8L</div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                </div>
+                <p>Goal: 3.0L</p>
+            </div>
+        </div>
+
+        <div class="activity-section">
+            <h2>Recent Activities</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon running">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="activity-details">
+                        <h4>Morning Run</h4>
+                        <p>5.2 km • 32 min • 285 kcal</p>
+                    </div>
+                    <span class="activity-time">2h ago</span>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon meditation">
+                        <i class="fas fa-om"></i>
+                    </div>
+                    <div class="activity-details">
+                        <h4>Meditation</h4>
+                        <p>15 minutes • Mindfulness</p>
+                    </div>
+                    <span class="activity-time">4h ago</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Set current date
+        const dateElement = document.getElementById('current-date');
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = new Date().toLocaleDateString('en-US', options);
+    </script>
 </body>
 </html>
