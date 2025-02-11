@@ -3,55 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Profile - Health & Wellness Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="profile.css">
 </head>
 <body>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>Health Tracker</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="home.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="hsdata.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Health Data</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="logout.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-    <div class="container">
+    <main class="main-content">
         <header>
-            <h1>User Profile</h1>
-        </header>
-
-        <section class="profile-card">
-            <h2>Profile Information</h2>
-            <div class="profile-info">
-                <div class="info-item">
-                    <strong>Name:</strong>
-                    <span id="profile-name">John Doe</span>
-                </div>
-                <div class="info-item">
-                    <strong>Username:</strong>
-                    <span id="profile-username">john_doe</span>
-                </div>
-                <div class="info-item">
-                    <strong>Age:</strong>
-                    <span id="profile-age">28</span>
-                </div>
-                <div class="info-item">
-                    <strong>Weight:</strong>
-                    <span id="profile-weight">70 kg</span>
-                </div>
-                <div class="info-item">
-                    <strong>Height:</strong>
-                    <span id="profile-height">5'10"</span>
-                </div>
-                <div class="info-item">
-                    <strong>Goal:</strong>
-                    <span id="profile-goal">Stay Fit and Healthy</span>
+            <div class="header-content">
+                <h1>Profile Settings</h1>
+                <p class="subtitle">Manage your personal information and preferences</p>
+            </div>
+            <div class="profile-menu">
+                <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                <div class="notifications">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-badge">3</span>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <nav class="navigation">
-            <a href="home.html" class="nav-link">Go to Home</a>
-            <a href="hsdata.html" class="nav-link">Health & Sleep Data</a>
-        </nav>
+        <div class="profile-grid">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="large-profile-pic">
+                        <div class="edit-overlay">
+                            <i class="fas fa-camera"></i>
+                            <span>Change Photo</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Member since January 2025</p>
+                        <button class="edit-profile-btn">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        <footer>
-            <button class="logout-btn">Logout</button>
-        </footer>
-    </div>
+            <div class="info-card">
+                <h3>Personal Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Full Name</label>
+                        <p>John Doe</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p>john.doe@example.com</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Phone</label>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Date of Birth</label>
+                        <p>January 15, 1990</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-info-card">
+                <h3>Health Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Height</label>
+                        <p>175 cm</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Weight</label>
+                        <p>70 kg</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Blood Type</label>
+                        <p>O+</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Activity Level</label>
+                        <p>Moderate</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goals-card">
+                <h3>Health Goals</h3>
+                <div class="goals-list">
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div class="goal-details">
+                            <h4>Daily Steps</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <span>Goal: 10,000 steps</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <div class="goal-details">
+                            <h4>Weight Goal</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 60%"></div>
+                                </div>
+                                <span>Goal: 65 kg</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <div class="goal-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="goal-details">
+                            <h4>Sleep Goal</h4>
+                            <div class="goal-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                                <span>Goal: 8 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preferences-card">
+                <h3>Preferences</h3>
+                <div class="preferences-list">
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="preference-item">
+                        <div class="preference-label">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Updates</span>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>

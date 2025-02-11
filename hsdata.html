@@ -3,39 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health and Sleep Data</title>
+    <title>Health Data - Health & Wellness Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="hsdata.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Your Health and Sleep Data</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Sleep Hours</th>
-                <th>Steps Taken</th>
-                <th>Calories Burned</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>2024-11-01</td>
-                <td>7 hours</td>
-                <td>10,500 steps</td>
-                <td>2200 kcal</td>
-            </tr>
-            <tr>
-                <td>2024-11-02</td>
-                <td>6.5 hours</td>
-                <td>9,800 steps</td>
-                <td>2100 kcal</td>
-            </tr>
-        </tbody>
-    </table>
-    <nav>
-        <a href="home.html">Back to Home</a>
-        <a href="profile.html">Go to Profile</a>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <span>Health Tracker</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="home.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="hsdata.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Health Data</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="lout.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
     </nav>
-    <button onclick="window.location.href='lout.html'">Logout</button>
+
+    <main class="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Health & Sleep Analytics</h1>
+                <p class="subtitle">Track your wellness journey over time</p>
+            </div>
+            <div class="profile-menu">
+                <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                <div class="notifications">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="date-filter">
+            <button class="filter-btn active">Week</button>
+            <button class="filter-btn">Month</button>
+            <button class="filter-btn">3 Months</button>
+            <button class="filter-btn">Year</button>
+            <div class="custom-date">
+                <input type="date" id="start-date">
+                <span>to</span>
+                <input type="date" id="end-date">
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stats-card">
+                <div class="stats-header">
+                    <h3>Sleep Duration</h3>
+                    <select class="time-range">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sleepChart"></canvas>
+                </div>
+                <div class="stats-summary">
+                    <div class="summary-item">
+                        <span>Average</span>
+                        <h4>7.5h</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Best</span>
+                        <h4>8.5h</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Worst</span>
+                        <h4>6h</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="stats-header">
+                    <h3>Heart Rate</h3>
+                    <select class="time-range">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="heartRateChart"></canvas>
+                </div>
+                <div class="stats-summary">
+                    <div class="summary-item">
+                        <span>Average</span>
+                        <h4>72 bpm</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Max</span>
+                        <h4>120 bpm</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Min</span>
+                        <h4>60 bpm</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="stats-header">
+                    <h3>Steps</h3>
+                    <select class="time-range">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="stepsChart"></canvas>
+                </div>
+                <div class="stats-summary">
+                    <div class="summary-item">
+                        <span>Average</span>
+                        <h4>8,547</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Best</span>
+                        <h4>12,354</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Goal</span>
+                        <h4>10,000</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="stats-header">
+                    <h3>Calories</h3>
+                    <select class="time-range">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <div class="chart-container">
+                    <canvas id="caloriesChart"></canvas>
+                </div>
+                <div class="stats-summary">
+                    <div class="summary-item">
+                        <span>Average</span>
+                        <h4>2,150</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Burned</span>
+                        <h4>350</h4>
+                    </div>
+                    <div class="summary-item">
+                        <span>Goal</span>
+                        <h4>2,000</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-section">
+            <h2>Health Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon positive">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Sleep Quality Improving</h4>
+                        <p>Your average sleep duration has increased by 45 minutes this week.</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon warning">
+                        <i class="fas fa-exclamation"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Step Count Below Target</h4>
+                        <p>You're 2,000 steps below your daily goal. A short walk could help!</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon positive">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Heart Rate Optimal</h4>
+                        <p>Your resting heart rate has been consistently in the healthy range.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sample data for charts
+        const dates = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        
+        // Sleep Chart
+        const sleepCtx = document.getElementById('sleepChart').getContext('2d');
+        new Chart(sleepCtx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Hours of Sleep',
+                    data: [7, 6.5, 8, 7.5, 7, 8.5, 7.5],
+                    borderColor: '#4361ee',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(67, 97, 238, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        });
+
+        // Heart Rate Chart
+        const heartRateCtx = document.getElementById('heartRateChart').getContext('2d');
+        new Chart(heartRateCtx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'BPM',
+                    data: [72, 75, 70, 73, 68, 74, 71],
+                    borderColor: '#ef233c',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(239, 35, 60, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Steps Chart
+        const stepsCtx = document.getElementById('stepsChart').getContext('2d');
+        new Chart(stepsCtx, {
+            type: 'bar',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Steps',
+                    data: [8547, 9123, 7890, 10234, 8765, 9876, 8234],
+                    backgroundColor: '#4895ef'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Calories Chart
+        const caloriesCtx = document.getElementById('caloriesChart').getContext('2d');
+        new Chart(caloriesCtx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Calories',
+                    data: [2100, 2300, 1950, 2200, 2150, 1900, 2250],
+                    borderColor: '#06d6a0',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(6, 214, 160, 0.1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
