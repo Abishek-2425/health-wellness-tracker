@@ -365,6 +365,73 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
+/* Profile Container Styles */
+.profile-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 2vh 2vw;
+}
+
+.tabs {
+    display: flex;
+    gap: 1vw;
+    padding: 1vh 2vw;
+    background: var(--white);
+    margin: 0;
+}
+
+.tab {
+    padding: 1vh 2vw;
+    margin: 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-content {
+    flex: 1;
+    min-height: 0;
+    padding: 2vh 2vw;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.accordion {
+    margin-bottom: 1vh;
+    padding: 0;
+}
+
+.accordion-header {
+    padding: 1vh;
+    margin: 0;
+    background: var(--background);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion.open .accordion-content {
+    max-height: 30vh;
+}
+
+.compact-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1vh;
+    padding: 1vh;
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .profile-grid {

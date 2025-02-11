@@ -175,9 +175,10 @@ header {
 /* Stats Grid */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1vh;
+    padding: 1vh;
+    margin: 0;
 }
 
 .stats-card {
@@ -292,10 +293,69 @@ header {
     line-height: 1.4;
 }
 
+/* Data Container */
+.data-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 2vh 2vw;
+}
+
+.metric-tabs {
+    display: flex;
+    gap: 1vw;
+    padding: 1vh 2vw;
+    background: var(--white);
+    margin: 0;
+}
+
+.metric-tab {
+    padding: 1vh 2vw;
+    margin: 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.metric-content {
+    flex: 1;
+    min-height: 0;
+    padding: 2vh 2vw;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.collapsible-chart {
+    margin-bottom: 1vh;
+    padding: 0;
+}
+
+.chart-header {
+    padding: 1vh;
+    margin: 0;
+    background: var(--background);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.collapsible-chart.open .chart-container {
+    max-height: 30vh;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .insights-grid {
